@@ -1,14 +1,11 @@
 import React from "react";
 import {
-    Modal,
-    View,
-    ActivityIndicator,
-    Text,
-    StyleSheet
+    ActivityIndicator, Modal, StyleSheet, Text, View
 } from "react-native";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
+
 
 interface customModalProps{
     visible: boolean,
@@ -22,19 +19,19 @@ export default function CustomModal({visible, loading, width, height, type} : cu
     if(type === "auth"){
         return <>{
             <Modal
-                visible={visible}
-                transparent
-                animationType="fade"
-                hardwareAccelerated
-                >
-                    <View style={styles.centerView}>
-                        <View style={[styles.squareView,{width: width || "60%",height: height || "20%",}]}>
-                            <View style={styles.contentView} > 
-                                <ActivityIndicator size="large" animating={loading} color={colors.secondary} /> 
-                                <Text style={[styles.text, {marginTop: 15, fontSize: 18}]}>Autenticando...</Text>                                                                     
-                            </View>
+            transparent
+            animationType="fade"
+            hardwareAccelerated
+            visible={visible}
+            >
+                <View style={styles.centerView}>
+                    <View style={[styles.squareView,{width: width || "60%",height: height || "20%",}]}>
+                        <View style={styles.contentView} > 
+                            <ActivityIndicator size="large" animating={loading} color={colors.secondary} /> 
+                            <Text style={[styles.text, {marginTop: 15, fontSize: 18}]}>Autenticando...</Text>                                                                     
                         </View>
                     </View>
+                </View>
             </Modal>
         }</>     
     }

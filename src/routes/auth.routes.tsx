@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Welcome, Login, SignUp } from "../utils/screens"
 
-export default function Routes(){
+function AuthRoutes(){
 
     const Stack = createStackNavigator();
 
@@ -18,3 +18,5 @@ export default function Routes(){
         </NavigationContainer>
     );
 }
+
+export default AuthRoutes;

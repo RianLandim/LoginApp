@@ -1,9 +1,11 @@
-import "react-native-gesture-handler";
-import React from 'react';
-import {useFonts, Roboto_400Regular, Roboto_700Bold} from "@expo-google-fonts/roboto"
+import { Roboto_400Regular, Roboto_700Bold, useFonts } from "@expo-google-fonts/roboto";
 import AppLoading from 'expo-app-loading';
+import React from 'react';
+import "react-native-gesture-handler";
 
-import Routes from './src/routes/routes.stack';
+import { AuthProvider } from "./src/context/AuthContext";
+import Routes from './src/routes';
+
 
 export default function App() {
 
@@ -12,5 +14,9 @@ export default function App() {
   if(!fontsLoaded){ 
     return <AppLoading/>
   }
-   return <Routes />
+  return(
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
+    )
 }
